@@ -1,9 +1,9 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.User;
+import com.github.pagehelper.PageInfo;
 
-import java.util.List;
 
 public interface UserService {
-    List<User> findAllUser();
+    PageInfo<User> findAllUser(Integer pageNum,Integer pageSize);
 }

@@ -2,7 +2,7 @@
 server:
   port: 8080
 spring:
-#���ݿ���������
+#数据库连接配置
   datasource:
     username: root
     password: root
@@ -12,16 +12,30 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
 
-#mybatis����
+#mybatis配置
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.example.demo.entity.User
-  #�����շ�
+  #开启驼峰
   configuration:
     map-underscore-to-camel-case: true
+#mapper配置
+mapper:
+  mappers: com.example.demo.common.BaseMapper
+  identity: MYSQL
+
+#分页助手的配置
+pagehelper:
+  helperDialect: mysql
+  reasonable: true  #开启优化，如果开启优化，在分页页码结果没有数据的时候,会显示有数据的页码数据
+  supportMethodsArguments: true #是否支持接口参数来传递分页参数，默认false
+  pageSizeZero: false #pageSize=0 返回所有
+  params: count=countSql
+
+#日志级别
 logging:
   level:
     root: info
     com.example.demo.mapper: debug
 
-#��־����
+
