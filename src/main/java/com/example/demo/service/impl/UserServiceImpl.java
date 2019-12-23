@@ -26,4 +26,9 @@ public class UserServiceImpl implements UserService {
         List<User> list = this.userMapper.selectAll();
         return new PageInfo<>(list);
     }
+
+    @Override
+    public User getById(Integer id) {
+        return this.userMapper.selectByPrimaryKey(id);
+    }
 }

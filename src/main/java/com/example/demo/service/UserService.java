@@ -6,4 +6,6 @@ import com.github.pagehelper.PageInfo;
 
 public interface UserService {
     PageInfo<User> findAllUser(Integer pageNum,Integer pageSize);
+
+    User getById(Integer id);
 }
